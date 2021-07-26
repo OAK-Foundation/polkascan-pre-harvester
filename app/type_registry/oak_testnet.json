@@ -1,0 +1,72 @@
+{
+  "runtime_id": 265,
+  "types": {
+    "Address": "MultiAddress",
+    "LookupSource": "MultiAddress",
+    "ProjectIndex": "u32",
+    "RoundIndex": "u32",
+    "Keys": {
+      "type": "struct",
+      "type_mapping": [
+         ["grandpa", "AccountId"],
+         ["babe", "AccountId"],
+         ["im_online", "AccountId"],
+         ["authority_discovery", "AccountId"],
+         ["parachains", "AccountId"]
+      ]
+    },
+    "AccountInfo": {
+      "type": "struct",
+      "type_mapping": [
+        ["nonce", "Index"],
+        ["consumers", "RefCount"],
+        ["providers", "RefCount"],
+        ["sufficients", "RefCount"],
+        ["data", "AccountData"]
+      ]
+    },
+    "Round": {
+      "type": "struct",
+      "type_mapping": [
+          ["start", "BlockNumber"],
+          ["end", "BlockNumber"],
+          ["matching_fund", "Balance"],
+          ["grants", "Vec<Grant>"],
+          ["is_finalized", "bool"]
+      ]
+    },
+    "RoundOf": "Round",
+    "Grant": {
+      "type": "struct",
+      "type_mapping": [
+          ["project_index", "ProjectIndex"],
+          ["contributions", "Vec<Contribution>"],
+          ["is_approved", "bool"],
+          ["is_canceled", "bool"],
+          ["is_withdrawn", "bool"],
+          ["withdrawal_expiration", "BlockNumber"],
+          ["matching_fund", "Balance"]
+      ]
+    },
+    "Contribution": {
+      "type": "struct",
+      "type_mapping": [
+          ["account_id", "AccountId"],
+          ["value", "Balance"]
+      ]
+    },
+    "Project": {
+      "type": "struct",
+      "type_mapping": [
+          ["name", "Vec<u8>"],
+          ["logo", "Vec<u8>"],
+          ["description", "Vec<u8>"],
+          ["website", "Vec<u8>"],
+          ["owner", "AccountId"],
+          ["create_block_number", "BlockNumber"]
+      ]
+    },
+    "ProjectOf": "Project"
+  },
+  "versioning": []
+}
