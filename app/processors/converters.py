@@ -1032,7 +1032,6 @@ class PolkascanHarvesterService(BaseService):
                 storage_key_prefix = self.substrate.generate_storage_hash(
                     storage_module='System',
                     storage_function='Account',
-                    metadata_version=settings.SUBSTRATE_METADATA_VERSION
                 )
 
                 rpc_result = self.substrate.rpc_request(
